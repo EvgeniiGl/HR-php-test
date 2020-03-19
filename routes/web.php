@@ -16,3 +16,14 @@ Route::get('/', function () {
 });
 
 Route::get('/weather', 'WeatherController@index');
+
+Route::group(
+    [
+        'prefix' => 'order'
+
+    ],
+    function () {
+        Route::get('/', 'OrderController@index');
+        Route::get('/edit/{id}', 'OrderController@edit');
+        Route::post('/update/{id}', 'OrderController@update');
+    });
